@@ -1,0 +1,19 @@
+package br.com.teste_tecnico.gerenciador_tarefas.dto;
+
+import br.com.teste_tecnico.gerenciador_tarefas.util.StatusTarefa;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+public record TarefaAtualizarRequest(
+    @Size(min = 3, max = 100, message = "titulo deve ter o tamnho entre 3-100 caracteres")
+    @NotBlank(message = "titulo nao pode ser vazio")
+    String titulo,
+
+    @Size(max = 500, message = "descricao deve ter um tamanho maximo de 500 caracteres")
+    String descricao,
+
+    @NotNull(message = "status deve ser preenchido com os valores validos(PEDENTE, EM_ANDAMENTO, CONCLUIDO)")
+    StatusTarefa status
+) {
+}

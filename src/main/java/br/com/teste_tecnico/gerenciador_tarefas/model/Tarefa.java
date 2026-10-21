@@ -15,8 +15,8 @@ import jakarta.persistence.Table;
 @Entity 
 @Table (name = "tb_tarefa")
 public class Tarefa {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -33,16 +33,6 @@ public class Tarefa {
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
     public Tarefa() {}
-
-    public Tarefa(String titulo, String descricao, StatusTarefa status) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.status = status;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -70,5 +60,9 @@ public class Tarefa {
 
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
